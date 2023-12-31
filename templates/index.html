@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Tags for Responsiveness -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="/static/css/swiper-bundle.min.css">
+
+  <!-- Team Slider CSS -->
+  <link rel="stylesheet" href="/static/css/team.css">
+
+  <!-- Website Title -->
+  <title>Xpedition Tours</title>
+  
+  <!--- favicon icon -->
+  <link rel="shortcut icon" href="/static/images/android-chrome-512x512.png" type="image/svg+xml">
+
+
+  <!-- Online Fonts Awesome Link -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  
+  <!-- Custom Css Link -->
+  <link rel="stylesheet" href="/static/css/style.css">
+ 
+  <!-- Google Online Fonts Links -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<!-- Body Section -->
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <a href="tel:{{head_number.header_number}}" class="helpline-box">
+
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <div class="wrapper">
+            <p class="helpline-title">For Further Inquires :</p>
+
+            <p class="helpline-number">{{head_number.header_number}}</p>
+          </div>
+
+        </a>
+
+        <!-- Header Logo -->
+        <a href="#contact" class="logo">
+          <img src="{{head_logo.header_logo.url}}" alt="Xpedition Logo" class="logo-image">
+        </a>
+        
+        <!-- Responsive Css for Logo -->
+        
+                <style>
+                  .logo-image {
+          border-radius: 20px;
+          width: 60px;
+        }
+
+        @media (max-width: 768px) {
+          .logo-image {
+            width: 55px;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .logo-image {
+            width: 40px;
+          }
+        }
+        </style>
+
+        <!-- Nav for Tablet and Mobile -->
+        <div class="header-btn-group">
+
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Header Bottom -->
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <ul class="social-list">
+
+          <li>
+            <a href="{{face_link.facebook_link}}" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{insta_link.instagram_link}}" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{you_link.youtube_link}}" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <!-- <a href="#contact" class="logo">
+              <img src="/static/images/header_logo.jpg" alt="Xpedition Logo">
+            </a> -->
+
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <!-- Header Link Buttons -->
+          <ul class="navbar-list">
+
+            <li>
+              <a href="#home" class="navbar-link" data-nav-link>home</a>
+            </li>
+
+           
+
+            <li>
+              <a href="#booking" class="navbar-link" data-nav-link>Custom Booking</a>
+            </li>
+
+            <li>
+              <a href="#package" class="navbar-link" data-nav-link>Special packages</a>
+            </li>
+
+            <li>
+              <a href="#gallery" class="navbar-link" data-nav-link>Photo gallery</a>
+            </li>
+
+            <li>
+              <a href="#team" class="navbar-link" data-nav-link>Our Team</a>
+            </li>
+
+            <li>
+              <a href="#contact" class="navbar-link" data-nav-link>contact us</a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+        <a href="{% url 'all_packages' %}"><button class="btn btn-primary">Book Now</button></a>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container">
+
+          <h2 class="h1 hero-title">{{head_heading.header_heading}}</h2>
+
+          <p class="hero-text" style="text-align: justify;">
+            {{head_paragraph.header_paragraph}}
+            <br>
+            
+          </p>
+
+          <div class="btn-group">
+            <a href="#package"><button class="btn btn-primary">Special Packages</button></a>
+            <a href="#booking"><button class="btn btn-primary">Custom Booking</button></a>
+
+             <!-- <a href="#booking"><button class="btn btn-secondary">Custom Booking</button></a> -->
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+   <!-- #Custom Booking Section -->
+
+      <section class="tour-search" id="booking" style="padding-top: 100px;" >
+        <div class="container">
+
+
+          <div class="container p-4 px-lg-5">
+            <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
+              <p class="h2 text-white font-weight-600 my-4">Custom Booking</p>
+            </div>
+          </div>
+          
+
+
+          <form action="{% url 'custom_booking' %}" class="tour-search-form" method="post">
+
+            {% csrf_token %}
+
+            <style>
+              /* CSS for form controls */
+              .input-wrapper {
+                margin-bottom: 20px;
+              }
+            
+              .input-label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+              }
+            
+              .input-group {
+                position: relative;
+              }
+            
+              .form-control {
+                width: 100%;
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+              }
+            
+              .form-select {
+                width: 100%;
+                padding: 13px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                appearance: none;
+                -webkit-appearance: none;
+                background: url("down-arrow.svg") no-repeat right center;
+                background-size: 20px;
+              }
+            
+              .btn {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                background-color: #333;
+                color: #fff;
+                font-size: 16px;
+                cursor: pointer;
+              }
+            </style>
+            
+
+            <!-- Custom Booking Section -->
+          
+            <!--  Name -->
+            <div class="input-wrapper">
+              <label for="name" class="input-label">Name:*</label>
+              <div class="input-group">
+                <input type="text" name="name" id="name" required class="form-control">
+              </div>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="input-wrapper">
+              <label for="number" class="input-label">Phone Number*</label>
+              <div class="input-group">
+                <input type="tel" name="number" id="number" required class="form-control">
+              </div>
+            </div>
+
+            <!-- Departure -->
+            <div class="input-wrapper">
+              <label for="departure" class="input-label">Departure*</label>
+              <div class="input-group">
+                <select id="departure" class="form-select" name="departure" required>
+                  <option value="">Select Departure:</option>
+                  {% for departure in all_departure_city %}
+                  <option>{{departure.departure_city}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            
+            <!-- Destination -->
+            <div class="input-wrapper">
+              <label for="destination" class="input-label"> Destination*</label>
+              <div class="input-group">
+                <select id="destination" class="form-select" name="destination" required>
+                  <option value="">Select Destination:</option>
+                  {% for destination in all_destination_city %}
+                  <option>{{destination.destination_city}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            
+            <!-- Travellers -->
+            <div class="input-wrapper">
+              <label for="travellers" class="input-label">No. of Travellers*</label>
+              <div class="input-group">
+                <input type="text" name="travellers" id="travellers" required class="form-control">
+              </div>
+            </div>
+
+            
+            <!-- Departure Date -->
+            <div class="input-wrapper">
+              <label for="date" class="input-label">Departure Date</label>
+              <div class="input-group">
+                <input type="datetime-local" name="date" id="date" required class="form-control" value="gii">
+              </div>
+            </div>
+            
+            
+            
+            <button type="submit" class="btn btn-secondary">Inquire now</button>
+            
+          </form>
+
+        </div>
+      </section>
+
+
+
+
+
+      
+
+
+      <!-- 
+        - #PACKAGE
+      -->
+
+      <section class="package" id="package" style="padding-top: 80px;">
+        <div class="container">
+
+  
+
+          <h2 class="h2 section-title" style="text-align: center;">Special Packeges</h2>
+
+          
+
+          <ul class="package-list">
+
+
+
+
+            {% for package in all_special_packages %}
+            <a href="{% url 'details' package.package_url %}">
+            <li>
+              <div class="package-card" style="border: 1px solid black;">
+
+                <figure class="card-banner">
+                  <img src="{{ package.image.url }}" alt="{{ package.title }}" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">{{ package.title }}</h3>
+
+                  <p class="card-text">
+                    {{ package.description }}
+                  </p>
+
+                  <ul class="card-meta-list">
+
+                    <li class="card-meta-item">
+                      <div class="meta-box">
+                        <ion-icon name="time"></ion-icon>
+
+                        <p class="text">{{ package.days_nights }}</p>
+                      </div>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <div class="meta-box">
+                        <ion-icon name="people"></ion-icon>
+
+                        <p class="text">{{ package.max_people }}</p>
+                      </div>
+                    </li>
+
+                    <li class="card-meta-item">
+                      <div class="meta-box">
+                        <ion-icon name="location"></ion-icon>
+
+                        <p class="text">{{ package.location }}</p>
+                      </div>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+                <div class="card-price">
+
+                  <div class="wrapper">
+
+                    <p class="reviews">( {{ package.reviews }} reviews)</p>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                  </div>
+
+                  <p class="price">
+                    {{ package.price }}
+                    <span>/ per person</span>
+                  </p>
+
+                  <!-- <a href="#"><button class="btn btn-secondary">Get More Details</button></a> -->
+                  <button class="btn btn-secondary">Book Now</button>
+
+                </div>
+
+              </div>
+            </li>
+          </a>
+          <br>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+          </ul>
+
+          <a href="{% url 'all_packages' %}"><button class="btn btn-primary">View All Packages</button></a>
+
+        </div>
+      </section>
+
+
+
+      <!-- 
+        - #WHATSAPP CHAT
+      -->
+
+      <div class="whatsapp">
+        <a href="https://wa.me/923047856188?text=Hi, I am " target="_blank">
+        <img src="/static/images/whatsapp.png" alt="whatsapp_image" width="50">
+      </a>
+      </div>
+
+      <style>
+        .whatsapp{
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+        }
+      </style>
+
+
+      <!-- Photo Gallery -->
+
+      <section class="gallery" id="gallery" style="padding-top: 85px;">
+        <div class="container">
+
+          <h2 class="h2 section-title">Photo's From Travellers</h2>
+
+          <ul class="gallery-list">
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="{{ first_image.image.url }}" alt="{{ first_image.name }}">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="{{ second_image.image.url }}" alt="{{ second_image.name }}">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="{{ third_image.image.url }}" alt="{{ third_image.name }}">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="{{ fourth_image.image.url }}" alt="{{ fourth_image.name }}">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="{{ fifth_image.image.url }}" alt="{{ fifth_image.name }}">
+              </figure>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+         Team Section
+      -->
+      
+        <section class="team"  id="team" style="padding-top: 80px;">
+          <div class="container">  
+            
+            <h2 class="h2 section-title" style="text-align: center;">Our Team</h2>
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+
+
+{% for member in all_team_members %}
+                    <div class="card swiper-slide">
+                      <div class="image-content">
+                          <span class="overlay"></span>
+
+                          <div class="card-image">
+                              <img src="{{member.image.url}}" alt="" class="card-img">
+                          </div>
+                      </div>
+
+                      <div class="card-content">
+                          <h2 class="name"> {{member.name}}</h2>
+                          <p class="description">{{member.title}}</p>
+
+                          <button class="button" style="text-decoration:none"> <a href="{{member.link}}"><span style="color: white;" title="{{member.name}}">Instagram</span></a> </button>
+                      </div>
+                  </div>
+
+{% endfor %}
+
+
+
+
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+
+      </div>
+    </section>
+
+   
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+<section id="contact" style="padding-top: 30px;">
+  <div>
+  <footer class="footer" >
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="{{ foot_logo.footer_image.url }}"  alt="{{foot_logo.name}}" style="border-radius: 50%; width: 150px;">
+          </a>
+
+          <p class="footer-text" style="text-align: justify; font-size: 15px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+            {{foot_paragraph.footer_paragraph}}
+          
+          </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h6 class="contact-title">Contact Us</h6>
+
+          <p class="contact-text">
+            Feel free to reach out to us around the clock !
+          </p>
+
+          <ul>
+
+            <!-- Phone Number -->
+            <a href="tel:{{ foot_number.footer_number }}"  style="color: aliceblue;">
+              <div>
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:{{ foot_number.footer_number }}" class="contact-link">{{foot_number.footer_number}}</a>
+            </li>
+          </div>
+          </a>
+
+
+          <!-- Email -->
+          <a href="mailto:{{foot_gmail.footer_gmail}}" style="color: aliceblue;">
+            <div>
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:{{foot_gmail.footer_gmail}}" class="contact-link">{{foot_gmail.footer_gmail}}</a>
+            </li>
+          </div>
+          </a>
+
+          <!-- location -->
+
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>{{foot_location.footer_location}} - Xpedition</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-form">
+
+          <!-- <video width="320" height="240" controls  style="width: 330px; height: 500px;">
+            <source src="./assets/video/viral.mp4" type="video/mp4" >
+          </video> -->
+
+        <iframe width="340" height="300"
+            src="https://www.youtube.com//embed/{{you_url}}">
+            <!-- https://www.youtube.com/watch?v=oaEbEuu9Ujg -->
+        </iframe>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2023 <a href="{{develop_link.developer_link}}">Web-Developer {{develop_name.developer_name}}</a> 
+          <span class="copyright"> All rights reserved copyright</span>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <p class="footer-bottom-link">Privacy Policy</p>
+          </li>
+
+          <li>
+            <p class="footer-bottom-link">Term & Condition</p>
+          </li>
+
+          <li>
+            <p class="footer-bottom-link">FAQ</p>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+</div>
+</section>
+
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="/static/js/script.js"></script>
+
+  <!-- 
+    - Ionicon Online Links
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+ <!-- Swiper JS for Team slider-->
+ <script src="/static/js/swiper-bundle.min.js"></script>
+
+ <!-- Team JavaScript fo slider-->
+ <script src="/static/js/team_script.js"></script>
+</html>
+
+</html>

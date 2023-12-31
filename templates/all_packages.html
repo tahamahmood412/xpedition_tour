@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body > 
+    
+    <h1 class="mt-10 mb-2 text-center capitalize text-4xl">All Packages</h1>
+    <hr class="w-1/5 mx-auto" />
+
+    <!-- my cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center mt-10">
+        <!-- my 1st card -->
+
+        {% for x in combined_objects %}
+
+        <div class="p-4">
+          <div class="rounded overflow-hidden shadow-lg max-w-sm card-fixed-size" id="blur">
+            <a href="{% url 'details' x.package_url %}">
+            <img src="{{ x.image.url }}" alt="card1" class="w-full card-image">
+            
+            <div class="px-6 pt-4">
+              <div class="font-bold text-xl mb-2 text-center">{{x.title}}</div>
+              <p class="text-gray-600 text-justify">{{x.description}}</p>
+              <div class="grid grid-flow-col gap-5 pb-2 px-6">
+                <p class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mt-4 rounded text-center">
+                  Details
+                </p>
+              </div>
+            </div>
+          </a>
+          </div>
+        </div>
+        
+        {% endfor %}
+        
+
+        <style>
+            .card-fixed-size {
+              width: 100%; /* Set the desired width of the card, it will take 100% width of its container */
+              max-width: 300px; /* Set the maximum width of the card */
+            }
+            
+            .card-image {
+              height: 200px; /* Set the desired height of the card image */
+              object-fit: cover; /* Ensure the image retains its aspect ratio while covering the container */
+            }
+            
+            /* Media Query for larger screens (e.g., tablets) */
+            @media (min-width: 768px) {
+              .card-fixed-size {
+                max-width: 400px; /* Increase the maximum width for larger screens */
+              }
+            }
+            
+            /* Media Query for even larger screens (e.g., desktops) */
+            @media (min-width: 992px) {
+              .card-fixed-size {
+                max-width: 500px; /* Increase the maximum width for even larger screens */
+              }
+            }
+            </style>
+            
+            
+       
+      
+  
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+     
+</body>
+</html>

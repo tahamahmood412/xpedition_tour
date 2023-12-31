@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Screen Layout</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Sticky Pay Now Button */
+    .sticky-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Modern Color Combination */
+    :root {
+      --primary-color: #007bff; /* Blue */
+      --secondary-color: #6c757d; /* Gray */
+      --light-color: #f8f9fa; /* Light Gray */
+      --dark-color: #343a40; /* Dark Gray */
+    }
+
+    .bg-primary {
+      background-color: var(--primary-color);
+    }
+
+    .bg-secondary {
+      background-color: var(--secondary-color);
+    }
+
+    .bg-light {
+      background-color: var(--light-color);
+    }
+
+    .bg-dark {
+      background-color: var(--dark-color);
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left Split with Title and Text Area -->
+      <div class="col-md-6  py-5" style=" background-color: #007bff;">
+        <div class="text-center">
+          {% for item in data_list %}
+            <h2 style="color: white;">{{ item.package_name }}</h2>
+            <table class="details-table mt-4 table table-bordered">
+              <tr>
+                <th colspan="2">Details</th>
+              </tr>
+              <tr>
+                <td colspan="2">{{ item.details | safe }}</td>
+              </tr>
+              <tr>
+                <td>Ticket Price:</td>
+                <td id="ticketPrice">{{ item.price }}</td>
+              </tr>
+            </table>
+          {% endfor %}
+        </div>
+      </div>
+
+      <style>
+        .details-table {
+          width: 100%;
+          background-color: white;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+        }
+      
+      </style>
+
+      <!-- Right Split with Form -->
+      <div class="col-md-6  py-5" style="background-color: #007bff;">
+        <div class="text-center text-light">
+          <h2>Book Ticket</h2>
+        </div>
+
+        <form method="post" class="px-4">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <label for="{{ form.full_name.id_for_label }}"><span style="color: white; font-size: 20px;">Name:</span></label>
+            {{ form.full_name }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.no_of_travellers.id_for_label }}"><span style="color: white;  font-size: 20px;">Number of Travelers:</span></label>
+            {{ form.no_of_travellers }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.cnic.id_for_label }}"><span style="color: white;  font-size: 20px;">CNIC:</span></label>
+            {{ form.cnic }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.phone.id_for_label }}"><span style="color: white;  font-size: 20px;">Contact Number:</span></label>
+            {{ form.phone }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.nationality.id_for_label }}"><span style="color: white;  font-size: 20px;">Nationality:</span></label>
+            {{ form.nationality }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.total_amount.id_for_label }}"><span style="color: white;  font-size: 20px;">Total Price:</span></label>
+            {{ form.total_amount }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.datetimeampm.id_for_label }}"><span style="color: white;  font-size: 20px;">Booking Date/Time:</span></label>
+            <input type="datetime-local" name="{{ form.datetimeampm.name }}" id="{{ form.datetimeampm.id_for_label }}" required class="form-control" value="{{ form.datetimeampm.value|default:'' }}">
+        </div>
+      
+        <button type="submit" class="btn btn-success btn-block"><span style="color: white;  font-size: 20px;">Pay Now</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+  <!-- Javascript Price Function -->
+  <script>
+    function calculateUpdatedPrice() {
+      const priceElement = document.getElementById("ticketPrice");
+      const basePrice = parseFloat(priceElement.innerText);
+      
+      const multiplierInput = document.getElementById("id_no_of_travellers");
+      const updatedPriceInput = document.getElementById("id_total_amount");
+
+      const multiplier = parseInt(multiplierInput.value);
+      if (!isNaN(multiplier)) {
+        const updatedPrice = basePrice * multiplier;
+        updatedPriceInput.value = updatedPrice.toFixed(2);
+        // console.log(updatedPriceInput.value)
+      } else {
+        updatedPriceInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>

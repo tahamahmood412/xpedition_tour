@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child-Access</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h1>Database Records</h1>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+
+        <p>Total Number of Verified Records: {{ total_verified }}</p>
+        <p>Total Number of Records: {{ total_records }}</p>
+        <p>Total Amount of All Verified Users: {{ total_amount_verified }}</p>
+
+        
+
+        <form method="GET" class="mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="status_filter" class="form-label">Select Status:</label>
+                    <select id="status_filter" name="status_filter" class="form-select">
+                        <option value="all">All</option>
+                        <option value="verified">Verified</option>
+                        <option value="not verified">Not Verified</option>
+                       
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="search_query" class="form-label">Search:</label>
+                    <input type="text" id="search_query" name="search_query" class="form-control" placeholder="Search by name, CNIC, or contact">
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary">Filter & Search</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>Name</th>
+                        <th>Package Name</th>
+                        <th>Package Price</th>
+                        <th>Number of Travellers</th>
+                        <th>Total Amount</th>
+                        <th>CNIC</th>
+                        <th>Phone</th>
+                        <!-- <th>Account Name</th>
+                        <th>Account Number</th>
+                        <th>nationality</th> -->
+                        <th>date_time</th>
+                        <!-- <th>Payment</th> -->
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for combined_data in combined_data_list %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ combined_data.full_name }}</td>
+                            <td>{{ combined_data.package_names_string }}</td>
+                            <td>{{ combined_data.package_price_string }}</td>
+                            <td>{{ combined_data.no_of_travellers }}</td>
+                            <td>{{ combined_data.total_amount }}</td>
+
+                            <td>{{ combined_data.cnic }}</td>
+                            <td>{{ combined_data.phone }}</td>
+                            
+                            <!-- <td>{{ combined_data.account_name }}</td>
+                            <td>{{ combined_data.account_number }}</td>
+                            <td>{{ combined_data.nationality }}</td> -->
+                            <td>{{ combined_data.date_time }}</td>
+                            <!-- <td>
+                                <a href="{{ combined_data.image.url }}" data-lightbox="image">
+                                  <img src="{{ combined_data.image.url }}" alt="Image" style="max-width: 100px; max-height: 100px;">
+                                </a>
+                            </td> -->
+
+                            <td>{{ combined_data.status }}</td>
+                              
+                              
+
+
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+</html>

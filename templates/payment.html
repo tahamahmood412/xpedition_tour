@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Account Information</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #9397e3;
+  }
+  .container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+  }
+  /* img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 90%;
+  } */
+  input[type="text"], input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .pay-now-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+<!-- <link rel="stylesheet" href="/static/css/bootstrap.css"> -->
+</head>
+<body>
+
+  <div class="container">
+    <form method="post"  action="{% url 'payment_view' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!--<img src="/static/images/jazzcash.jpg" alt="Profile Image">-->
+        <h4>HBL Account : M. Usama Aslam</h4>
+        <h4>Account Number : 1266-7901825003</h4>
+        <h4>Meezan Account: Mohsin Mushtaq</h4>
+        <h4>Account Number: 0501-0108050268</h4>
+        <h4>Nayapay : Muhammad Saad Aslam</h4>
+        <h4>Account Number: 03241848597</h4>
+        
+        <!-- <input type="text" name="account_name" placeholder="Enter your account name">
+        <input type="text" name="account_number" placeholder="Enter your account number"> -->
+        {{data}}
+        <p>Upload Proof of Payment(Max-20MB)</p> 
+       <input type="file" name="payment_proof"  onchange="validateImageSize(this)" id="imageInput" required>
+        <button class="pay-now-btn" type="submit">Pay Now</button>
+    </form>
+</div>
+
+<script>
+    function validateImageSize(input) {
+      const maxSize = 20 * 1024 * 1024; // 20 MB in bytes
+      const file = input.files[0];
+      
+      if (file && file.size > maxSize) {
+        alert("Image size exceeds 20MB limit.");
+        input.value = ''; // Reset the input field
+      }
+    }
+    
+
+  </script>
+
+
+
+
+
+</body>
+</html>
